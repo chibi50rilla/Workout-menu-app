@@ -1,3 +1,8 @@
+# Workout Menu App
+
+Welcome to the Workout Menu App!  
+This project helps you record and manage your daily training routines with a clean and motivating UI.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -38,6 +43,14 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## 📎 Additional Resources
+
+> 📌 The following design documents are written in Japanese. 
+- [Japanese README](README.ja.md) 
+- [External Design (Japanese)](docs/WorkoutMenuApp_外部設計.md)
+- [Internal Design (Japanese)](docs/WorkoutMenuApp_内部設計.md)
+> English summaries will be added in future updates.
 
 ## Learn More
 

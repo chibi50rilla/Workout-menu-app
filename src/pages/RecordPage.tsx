@@ -9,6 +9,12 @@ type RecordEntry = {
   sets: number;
 };
 
+type SetEntry = {
+  weight: number;
+  reps: number;
+  sets: number;
+};
+
 function RecordPage() {
   const [exercise, setExercise] = useState('Barbell Bench Press');
   const [weight, setWeight] = useState<number>(0);
@@ -16,6 +22,10 @@ function RecordPage() {
   const [sets, setSets] = useState<number>(0);
   const [exerciseTotal, setExerciseTotal] = useState<number>(0);
   const [history, setHistory] = useState<RecordEntry[]>([]);
+
+  const [setEntries, setSetEntries] = useState<SetEntry[]>([
+    { weight: 0, reps: 0, sets: 0 },
+  ]);
 
   const today = new Date().toISOString().slice(0, 10).replace(/-/g, '/');
 
@@ -44,7 +54,7 @@ function RecordPage() {
       <h2 className="title">Workout Menu Record</h2>
 
       <div className="exercise-section">
-        <label>Exercise</label><br/>
+        <label className="input-label">Exercise</label><br/>
         <select
           className="exercise-select"
           value={exercise}
@@ -52,10 +62,8 @@ function RecordPage() {
         >
           <option>Barbell Bench Press</option>
           <option>Incline Barbell Bench Press</option>
-          <option>Decline Barbell Bench Press</option>
           <option>Dumbbell Bench Press</option>
           <option>Incline Dumbbell Press</option>
-          <option>Decline Dumbbell Press</option>
           <option>Dumbbell Fly</option>
           <option>Incline Dumbbell Fly</option>
           <option>Chest Press Machine</option>
@@ -98,17 +106,74 @@ function RecordPage() {
         </div>
       </div>
 
-      <p className="exercise-total">＋ Exercise Total {exerciseTotal} kg</p>
+      {setEntries.map((entry, index) => (
+        <div key={index} style={{ marginBottom: '1rem' }}>
+          <div className="input-group">
+            <input
+              type="number"
+              className="input-field"
+              placeholder="Weight"
+              value={entry.weight}
+              onChange={(e) => {
+                const updated = [...setEntries];
+                updated[index].weight = Number(e.target.value);
+                setSetEntries(updated);
+              }}
+            />
+            <input
+              type="number"
+              className="input-field"
+              placeholder="Reps"
+              value={entry.reps}
+              onChange={(e) => {
+                const updated = [...setEntries];
+                updated[index].reps = Number(e.target.value);
+                setSetEntries(updated);
+              }}
+            />
+            <input
+              type="number"
+              className="input-field"
+              placeholder="Sets"
+              value={entry.sets}
+              onChange={(e) => {
+                const updated = [...setEntries];
+                updated[index].sets = Number(e.target.value);
+                setSetEntries(updated);
+              }}
+            />
+          </div>
+        </div>
+      ))}
+
+      <button
+        onClick={() => {
+          setSetEntries([...setEntries, { weight: 0, reps: 0, sets: 0 }]);
+        }}
+        style={{
+          marginBottom: '1rem',
+          padding: '0.5rem 1rem',
+          backgroundColor: '#2e3a59',
+          color: '#c7f464',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+        }}
+      >
+        ＋
+      </button>
+
+      <p className="exercise-total">Exercise Total {exerciseTotal} kg</p>
 
       <button className="record-button" onClick={handleRecord}>
         Record
       </button>
 
       <div className="history-section">
-        <p className="date-label">{today}</p>
+        <p className="date-label"> History </p>
         {history.map((entry, index) => (
           <p key={index} className="history-entry">
-            {entry.date} {entry.exercise} {entry.weight} kg × {entry.reps} × {entry.sets}
+            {entry.date} {entry.exercise} {entry.weight} kg × {entry.reps} Reps × {entry.sets} Sets
           </p>
         ))}
         <p className="total-weight">Total {totalWeight} kg</p>

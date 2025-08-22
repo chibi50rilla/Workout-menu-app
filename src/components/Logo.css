@@ -1,0 +1,11 @@
+/* src/components/Logo.css */
+.logo {
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-family: 'Segoe UI', sans-serif;
+  color: limegreen
+}
+
+.fit, .log {
+  color: inherit;
+}

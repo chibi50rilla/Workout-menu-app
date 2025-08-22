@@ -1,6 +1,6 @@
-# Workout Menu App
+# FitLog – Workout Menu App
 
-Welcome to the Workout Menu App!  
+Welcome to **FitLog**, your lifestyle-focused workout logging app!  
 This project helps you record and manage your daily training routines with a clean and motivating UI.
 
 # Getting Started with Create React App

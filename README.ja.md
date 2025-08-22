@@ -1,3 +1,11 @@
+# FitLog（フィットログ）
+
+**FitLog** は、ライフスタイルに寄り添ったワークアウト記録アプリです。  
+React + TypeScript を使用し、視覚的にわかりやすく、継続しやすいUIを目指して設計されています。
+
+このアプリでは、日々のトレーニングメニューを記録・管理しながら、  
+自分のペースで成長を実感できるよう工夫されています。
+
 ## 🚀 Create React App でのプロジェクト開始方法（日本語版）
 
 このプロジェクトは [Create React App](https://github.com/facebook/create-react-app) を使用して作成されました。

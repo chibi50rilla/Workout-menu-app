@@ -1,0 +1,41 @@
+.select-container {
+  background-color: #1a2a3a;
+  height: 100vh;
+  padding: 40px;
+  color: #b5ff00;
+}
+
+.select-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.select-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.select-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #b5ff00;
+  color: #1a2a3a;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  margin-top: 40px;
+}
+
+.select-button:hover {
+  background-color: #eaff6f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

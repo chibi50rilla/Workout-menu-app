@@ -28,7 +28,7 @@ function HomePage() {
         FitLog
       </h1>
       <button
-        onClick={() => navigate('/record')}
+        onClick={() => navigate('/select')}
         className="button"
       >
         Log start

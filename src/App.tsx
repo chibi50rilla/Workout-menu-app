@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import RecordPage from './pages/RecordPage';
+import SelectPage from './pages/SelectPage';
+
 
 function App() {
   return (
@@ -8,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/record" element={<RecordPage />} />
+        <Route path="/select" element={<SelectPage />} /> {/* ← 追加！ */}
       </Routes>
     </BrowserRouter>
   );

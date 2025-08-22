@@ -1,25 +1,15 @@
-import React from 'react';
-import './App.css';
-import Logo from './components/Logo';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import RecordPage from './pages/RecordPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Logo /> {/* ← ここに差し替え */}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/record" element={<RecordPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

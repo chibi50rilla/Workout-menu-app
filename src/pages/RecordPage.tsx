@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './RecordPage.css';
+import { useNavigate } from 'react-router-dom';
 
 type RecordEntry = {
   date: string;
@@ -10,35 +11,57 @@ type RecordEntry = {
 };
 
 type SetEntry = {
-  weight: number;
-  reps: number;
-  sets: number;
+  weight: string;
+  reps: string;
+  sets: string;
 };
 
 function RecordPage() {
+  const navigate = useNavigate();
   const [exercise, setExercise] = useState('Barbell Bench Press');
-  const [weight, setWeight] = useState<number>(0);
-  const [reps, setReps] = useState<number>(0);
-  const [sets, setSets] = useState<number>(0);
+  const [weight, setWeight] = useState<string>("");
+  const [reps, setReps] = useState<string>("");
+  const [sets, setSets] = useState<string>("");
   const [exerciseTotal, setExerciseTotal] = useState<number>(0);
   const [history, setHistory] = useState<RecordEntry[]>([]);
 
   const [setEntries, setSetEntries] = useState<SetEntry[]>([
-    { weight: 0, reps: 0, sets: 0 },
+    { weight: "", reps: "", sets: "" },
   ]);
 
   const today = new Date().toISOString().slice(0, 10).replace(/-/g, '/');
+  
+  const calculateTotalWeightFromSets = () => {
+  const topWeight = Number(weight);
+  const topReps = Number(reps);
+  const topSets = Number(sets);
+
+  const topTotal = isNaN(topWeight) || isNaN(topReps) || isNaN(topSets)
+    ? 0
+    : topWeight * topReps * topSets;
+
+  const setsTotal = setEntries.reduce((sum, entry) => {
+    const w = Number(entry.weight);
+    const r = Number(entry.reps);
+    const s = Number(entry.sets);
+    if (isNaN(w) || isNaN(r) || isNaN(s)) return sum;
+    return sum + w * r * s;
+  }, 0);
+
+  return topTotal + setsTotal;
+};
+
 
   const handleRecord = () => {
-    const total = weight * reps * sets;
+    const total = Number(weight) * Number(reps) * Number(sets);
     setExerciseTotal(total);
 
     const newEntry: RecordEntry = {
       date: today,
       exercise,
-      weight,
-      reps,
-      sets,
+      weight: Number(weight),
+      reps: Number(reps),
+      sets: Number(sets),
     };
 
     setHistory([...history, newEntry]);
@@ -83,7 +106,7 @@ function RecordPage() {
             type="number"
             placeholder="Weight"
             value={weight}
-            onChange={(e) => setWeight(Number(e.target.value))}
+            onChange={(e) => setWeight(e.target.value)}
           />
         </div>
         <div className="input-item">
@@ -92,7 +115,7 @@ function RecordPage() {
             type="number"
             placeholder="Reps ×"
             value={reps}
-            onChange={(e) => setReps(Number(e.target.value))}
+            onChange={(e) => setReps(e.target.value)}
           />
         </div>
         <div className="input-item">
@@ -101,7 +124,7 @@ function RecordPage() {
             type="number"
             placeholder="Sets"
             value={sets}
-            onChange={(e) => setSets(Number(e.target.value))}
+            onChange={(e) => setSets(e.target.value)}
           />
         </div>
       </div>
@@ -116,8 +139,11 @@ function RecordPage() {
               value={entry.weight}
               onChange={(e) => {
                 const updated = [...setEntries];
-                updated[index].weight = Number(e.target.value);
+                updated[index].weight = e.target.value;
                 setSetEntries(updated);
+              }}
+              onFocus={(e) => {
+                e.target.addEventListener('wheel', (event) => event.preventDefault(), { passive: false });
               }}
             />
             <input
@@ -127,8 +153,11 @@ function RecordPage() {
               value={entry.reps}
               onChange={(e) => {
                 const updated = [...setEntries];
-                updated[index].reps = Number(e.target.value);
+                updated[index].reps = e.target.value;
                 setSetEntries(updated);
+              }}
+              onFocus={(e) => {
+                e.target.addEventListener('wheel', (event) => event.preventDefault(), { passive: false });
               }}
             />
             <input
@@ -138,8 +167,11 @@ function RecordPage() {
               value={entry.sets}
               onChange={(e) => {
                 const updated = [...setEntries];
-                updated[index].sets = Number(e.target.value);
+                updated[index].sets = e.target.value;
                 setSetEntries(updated);
+              }}
+              onFocus={(e) => {
+                e.target.addEventListener('wheel', (event) => event.preventDefault(), { passive: false });
               }}
             />
           </div>
@@ -148,7 +180,7 @@ function RecordPage() {
 
       <button
         onClick={() => {
-          setSetEntries([...setEntries, { weight: 0, reps: 0, sets: 0 }]);
+          setSetEntries([...setEntries, { weight: "", reps: "", sets: "" }]);
         }}
         style={{
           marginBottom: '1rem',
@@ -163,21 +195,21 @@ function RecordPage() {
         ＋
       </button>
 
-      <p className="exercise-total">Exercise Total {exerciseTotal} kg</p>
+      <p className="exercise-total">
+        Exercise Total {calculateTotalWeightFromSets()} kg
+      </p>
 
-      <button className="record-button" onClick={handleRecord}>
-        Record
-      </button>
+      <div className="button-group">
+        <button className="record-button" onClick={handleRecord}>
+          Record
+        </button>
 
-      <div className="history-section">
-        <p className="date-label"> History </p>
-        {history.map((entry, index) => (
-          <p key={index} className="history-entry">
-            {entry.date} {entry.exercise} {entry.weight} kg × {entry.reps} Reps × {entry.sets} Sets
-          </p>
-        ))}
-        <p className="total-weight">Total {totalWeight} kg</p>
+        <button className="back-button" onClick={() => navigate('/select')}>
+          Back
+        </button>
       </div>
+
+
     </div>
   );
 }

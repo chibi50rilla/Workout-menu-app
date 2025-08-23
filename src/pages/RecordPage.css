@@ -46,6 +46,7 @@
   width: 100px;
   background-color: #223344;
   color: #ffffff;
+  appearance: textfield;
 }
 
 .input-item {
@@ -66,6 +67,14 @@
   font-size: 18px;
 }
 
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
 .record-button {
   margin-top: 20px;
   padding: 10px 20px;
@@ -83,8 +92,24 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.history-section {
-  margin-top: 40px;
+.back-button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3b4a6b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3b4a6b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .date-label {
@@ -103,4 +128,11 @@
   font-size: 20px;
   margin-top: 20px;
   font-weight: bold;
+}
+
+/* 数値入力のスピンボタン（上下の矢印）を非表示にする */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

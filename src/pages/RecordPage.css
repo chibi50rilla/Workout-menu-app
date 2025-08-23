@@ -10,6 +10,7 @@
 .title {
   font-size: 28px;
   margin-bottom: 20px;
+  font-weight: normal;
 }
 
 .exercise-section {
@@ -124,13 +125,6 @@
   color: #ffffff;
 }
 
-.total-weight {
-  font-size: 20px;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-/* 数値入力のスピンボタン（上下の矢印）を非表示にする */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

@@ -1,0 +1,47 @@
+.history-page {
+  padding: 40px;
+  background-color: #1a2a3a;
+  color: #ffffff;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #b5ff00;
+}
+
+.history-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: none;
+}
+
+.history-table th,
+.history-table td {
+  border: none;
+  padding: 8px;
+  text-align: center;
+}
+
+.no-record {
+  font-size: 18px;
+  color: #ffaaaa;
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #3b4a6b;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.total-weight {
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #b5ff00;
+}

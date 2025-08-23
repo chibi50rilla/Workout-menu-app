@@ -51,12 +51,8 @@ function RecordPage() {
   return topTotal + setsTotal;
 };
 
-
   const handleRecord = () => {
-    const total = Number(weight) * Number(reps) * Number(sets);
-    setExerciseTotal(total);
-
-    const newEntry: RecordEntry = {
+    const topEntry: RecordEntry = {
       date: today,
       exercise,
       weight: Number(weight),
@@ -64,8 +60,21 @@ function RecordPage() {
       sets: Number(sets),
     };
 
-    setHistory([...history, newEntry]);
+    const setEntryRecords: RecordEntry[] = setEntries
+      .map((entry) => ({
+        date: today,
+        exercise,
+        weight: Number(entry.weight),
+        reps: Number(entry.reps),
+        sets: Number(entry.sets),
+      }))
+      .filter((e) => e.weight && e.reps && e.sets);
+
+    const updatedHistory = [...history, topEntry, ...setEntryRecords];
+    setHistory(updatedHistory);
+    navigate('/history', { state: { history: updatedHistory } });
   };
+
 
   const totalWeight = history.reduce(
     (sum, entry) => sum + entry.weight * entry.reps * entry.sets,
@@ -74,7 +83,7 @@ function RecordPage() {
 
   return (
     <div className="record-page">
-      <h2 className="title">Workout Menu Record</h2>
+      <h2 className="title">{today}</h2>
 
       <div className="exercise-section">
         <label className="input-label">Exercise</label><br/>
@@ -208,8 +217,6 @@ function RecordPage() {
           Back
         </button>
       </div>
-
-
     </div>
   );
 }

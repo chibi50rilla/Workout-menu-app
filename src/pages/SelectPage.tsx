@@ -9,7 +9,7 @@ function SelectPage() {
 
   return (
     <div className="select-container">
-      <h1 className="select-title">Date & Muscle Group</h1>
+      <h1 className="select-title">Date & Group</h1>
 
       <div style={{ marginBottom: '20px' }}>
         <label>Date</label>
@@ -22,7 +22,7 @@ function SelectPage() {
       </div>
 
       <div style={{ marginBottom: '20px' }}>
-        <label>Muscle Group</label>
+        <label>Group</label>
         <select
           className="select-input"
           value={selectedMuscle}

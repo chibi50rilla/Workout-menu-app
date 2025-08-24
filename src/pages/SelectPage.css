@@ -13,8 +13,16 @@
   color: #b5ff00;
 }
 
+.form-label-block {
+  display: block; 
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 .select-input {
-  width: 100%;
+  display: block; 
+  width: 250px;
+  margin: 0 auto; 
   padding: 10px;
   border-radius: 8px;
   border: none;
@@ -25,7 +33,8 @@
 }
 
 .select-button {
-  width: 100%;
+  display: block;
+  width: 50%;
   padding: 12px;
   background-color: #b5ff00;
   color: #1a2a3a;
@@ -35,14 +44,16 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  margin-top: 40px;
+  margin: 40px auto 0 auto;
+  text-align: center; 
 }
 
 .total-weight {
   font-size: 30px;
   margin-top: 20px;
-  font-weight: normal;
+  font-weight: lighter;
   color: #b5ff00;
+  text-align: center;
 }
 
 .select-button:hover {

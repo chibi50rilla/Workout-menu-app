@@ -150,7 +150,7 @@ function RecordPage() {
           <label className="input-label">Reps</label>
           <input
             type="number"
-            placeholder="Reps ×"
+            placeholder="Reps"
             value={reps}
             onChange={(e) => setReps(e.target.value)}
           />

@@ -32,13 +32,15 @@ function SelectPage() {
           <option value="Back">Back</option>
           <option value="Legs">Legs</option>
           <option value="Arms">Arms</option>
-          <option value="Arms">Shoulders</option>
+          <option value="Ahoulders">Shoulders</option>
         </select>
       </div>
 
       <p className="total-weight">Total 0 kg</p>
 
-      <button className="select-button" onClick={() => navigate('/record')}>
+      <button className="select-button" 
+        onClick={() => navigate(`/record/${selectedMuscle}`)}
+      >
         Next
       </button>
     </div>

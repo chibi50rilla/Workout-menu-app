@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './RecordPage.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 type RecordEntry = {
   date: string;
+  muscleGroup: string;
   exercise: string;
   weight: number;
   reps: number;
@@ -18,6 +19,41 @@ type SetEntry = {
 
 function RecordPage() {
   const navigate = useNavigate();
+
+  const exerciseOptions: { [key: string]: string[] } = {
+    Chest: [
+      'Barbell Bench Press', 'Incline Barbell Bench Press', 'Dumbbell Bench Press',
+      'Incline Dumbbell Press', 'Dumbbell Fly', 'Incline Dumbbell Fly',
+      'Chest Press Machine', 'Incline Chest Press Machine', 'Pec Deck Machine',
+      'Cable Crossover', 'Low-to-High Cable Fly', 'High-to-Low Cable Fly',
+      'Smith Machine Bench Press',
+    ],
+    Back: [
+      'Deadlift', 'Pull-Up', 'Chin-Up', 'Lat Pulldown', 'Bent Over Row',
+      'Dumbbell Row', 'T-Bar Row', 'Seated Cable Row', 'Face Pull',
+      'Straight-Arm Pulldown', 'Machine Row',
+    ],
+    Legs: [
+      'Squat', 'Front Squat', 'Bulgarian Split Squat', 'Leg Press',
+      'Romanian Deadlift', 'Hack Squat', 'Leg Extension', 'Leg Curl',
+      'Hip Thrust', 'Calf Raise',
+    ],
+    Arms: [
+      'Barbell Curl', 'Dumbbell Curl', 'Hammer Curl', 'Concentration Curl',
+      'Preacher Curl', 'Cable Curl', 'Tricep Pushdown',
+      'Overhead Tricep Extension', 'Skull Crusher', 'Close-Grip Bench Press',
+      'Kickback', 'Dips', 'Zottman Curl', 'Incline Dumbbell Curl',
+      'Tricep Rope Extension',
+    ],
+    Shoulders: [
+      'Overhead Press', 'Dumbbell Shoulder Press', 'Arnold Press',
+      'Lateral Raise', 'Front Raise', 'Rear Delt Fly', 'Upright Row',
+      'Face Pull', 'Cable Lateral Raise', 'Machine Shoulder Press',
+      'Dumbbell Shrug', 'Barbell Shrug', 'Seated Dumbbell Press',
+      'Reverse Pec Deck',
+    ],
+  };
+  const { muscleGroup } = useParams();
   const [exercise, setExercise] = useState('Barbell Bench Press');
   const [weight, setWeight] = useState<string>("");
   const [reps, setReps] = useState<string>("");
@@ -54,6 +90,7 @@ function RecordPage() {
   const handleRecord = () => {
     const topEntry: RecordEntry = {
       date: today,
+      muscleGroup: muscleGroup || 'Chest',
       exercise,
       weight: Number(weight),
       reps: Number(reps),
@@ -63,6 +100,7 @@ function RecordPage() {
     const setEntryRecords: RecordEntry[] = setEntries
       .map((entry) => ({
         date: today,
+        muscleGroup: muscleGroup || 'Chest',
         exercise,
         weight: Number(entry.weight),
         reps: Number(entry.reps),
@@ -92,19 +130,9 @@ function RecordPage() {
           value={exercise}
           onChange={(e) => setExercise(e.target.value)}
         >
-          <option>Barbell Bench Press</option>
-          <option>Incline Barbell Bench Press</option>
-          <option>Dumbbell Bench Press</option>
-          <option>Incline Dumbbell Press</option>
-          <option>Dumbbell Fly</option>
-          <option>Incline Dumbbell Fly</option>
-          <option>Chest Press Machine</option>
-          <option>Incline Chest Press Machine</option>
-          <option>Pec Deck Machine</option>
-          <option>Cable Crossover</option>
-          <option>Low-to-High Cable Fly</option>
-          <option>High-to-Low Cable Fly</option>
-          <option>Smith Machine Bench Press</option>
+          {(exerciseOptions[muscleGroup || 'Chest'] || []).map((ex) => (
+            <option key={ex} value={ex}>{ex}</option>
+          ))}
         </select>
       </div>
 

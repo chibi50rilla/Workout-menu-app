@@ -12,6 +12,7 @@ function App() {
         <Route path="/record" element={<RecordPage />} />
         <Route path="/select" element={<SelectPage />} />
         <Route path="/history" element={<HistoryPage />} />
+        <Route path="/record/:muscleGroup" element={<RecordPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -3,6 +3,7 @@ import './HistoryPage.css';
 
 type RecordEntry = {
   date: string;
+  muscleGroup: string;
   exercise: string;
   weight: number;
   reps: number;
@@ -23,7 +24,14 @@ function HistoryPage() {
 
   return (
     <div className="history-page">
-      <h2 className="title">{today}</h2>
+      <h2 className="title">
+        {today}
+        {history.length > 0 && (
+          <span style={{ marginLeft: '20px' }}>
+            {history[0].muscleGroup}
+          </span>
+        )}
+      </h2>
 
       {todayHistory.length === 0 ? (
         <p className="no-record">No records for today.</p>

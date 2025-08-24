@@ -55,9 +55,28 @@ React + TypeScript を使用し、視覚的にわかりやすいUIを目指し�
 - [外部設計はこちら](docs/WorkoutMenuApp_外部設計.md)
 - [内部設計はこちら](docs/WorkoutMenuApp_内部設計.md)
 
-
 ## 📚 詳しく学ぶには
 
-- [Create React App の公式ドキュメント](https://facebook.github.io/create-react-app/docs/getting-started)  
+- [Create React App の公式ドキュメント](https://facebook.github.io/create-react-app/docs/getting-started)
+
+## 🔒 npm audit の記録（2025年8月24日）
+
+### 概要
+- 脆弱性の件数：**9件**（重大6件、中程度3件）
+- 影響のあるパッケージは主に開発用（例：`react-scripts`, `webpack-dev-server`）
+- すべての脆弱性を修正するには `npm audit fix --force` が必要  
+  → ただし、`react-scripts@0.0.0` がインストールされるため、**破壊的変更**となる可能性あり
+
+### 対応方針
+- 現時点では `--force` による修正は**行わない**
+- 脆弱性は開発環境に限定されており、アプリの動作には影響しないため、**開発を優先して継続**
+- 将来的に `react-scripts` から Vite などのモダンなツールへの移行を検討
+
+### 備考
+- 脆弱性の詳細は以下のGitHub Advisoryを参照：
+  - [GHSA-rp65-9cf3-c2jxr](https://github.com/advisories/GHSA-rp65-9cf3-c2jxr)（nth-check）
+  - [GHSA-7fh5-64p2-3v2j](https://github.com/advisories/GHSA-7fh5-64p2-3v2j)（PostCSS）
+
+---
 - [React の公式ドキュメント](https://reactjs.org/)
 

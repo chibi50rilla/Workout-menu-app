@@ -57,3 +57,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## 🔒 npm audit report (2025/08/24)
+
+### Summary
+- 9 vulnerabilities detected (6 high, 3 moderate)
+- Most issues are related to development-only packages (e.g. `react-scripts`, `webpack-dev-server`)
+- Fixing all issues requires `npm audit fix --force`, which installs `react-scripts@0.0.0` — a breaking change
+
+### Decision
+We decided **not to apply `--force` fixes** at this stage to avoid breaking the development environment.  
+Instead, we will continue development and consider migrating to Vite or another modern build tool in the future.

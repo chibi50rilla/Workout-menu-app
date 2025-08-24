@@ -68,3 +68,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Decision
 We decided **not to apply `--force` fixes** at this stage to avoid breaking the development environment.  
 Instead, we will continue development and consider migrating to Vite or another modern build tool in the future.
+
+### References
+- [GHSA-rp65-9cf3-c2jxr](https://github.com/advisories/GHSA-rp65-9cf3-c2jxr) — nth-check vulnerability
+- [GHSA-7fh5-64p2-3v2j](https://github.com/advisories/GHSA-7fh5-64p2-3v2j) — PostCSS parsing error
+

@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2025/08/25",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/25",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 80,
+        "reps": 10,
+        "sets": 1
+      },
+      {
+        "date": "2025/08/25",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 60,
+        "reps": 20,
+        "sets": 1
+      }
+    ]
+  },
+  {
+    "date": "2025/08/25",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/25",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
+  }
+]

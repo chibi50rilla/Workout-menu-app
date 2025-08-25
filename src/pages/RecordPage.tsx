@@ -111,8 +111,27 @@ function RecordPage() {
     const updatedHistory = [...history, topEntry, ...setEntryRecords];
     setHistory(updatedHistory);
     navigate('/history', { state: { history: updatedHistory } });
-  };
 
+    fetch('http://localhost:3001/api/saveRecord', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        date: today,
+        muscleGroup: muscleGroup || 'Chest',
+        records: [topEntry, ...setEntryRecords],
+      }),
+    })
+      .then(res => res.text())
+      .then(data => {
+        console.log('サーバーからの応答:', data);
+      })
+      .catch(err => {
+        console.error('保存エラー:', err);
+        alert('保存に失敗しました');
+      });
+
+    navigate('/history', { state: { history: updatedHistory } });
+  };
 
   const totalWeight = history.reduce(
     (sum, entry) => sum + entry.weight * entry.reps * entry.sets,

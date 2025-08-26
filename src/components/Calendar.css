@@ -4,19 +4,35 @@
   padding: 1rem;
   width: 320px;
   margin-bottom: 40px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .calendar-header {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 24px;
   color: lightgray;
+  margin-bottom: 16px;
+}
+
+.arrow-button {
+  background: none;
+  border: none;
+  color: lightgray;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0.5rem;
+  min-height: 6 * 60px;
 }
 
 .calendar-day {

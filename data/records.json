@@ -134,5 +134,97 @@
         "sets": 0
       }
     ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Incline Dumbbell Fly",
+        "weight": 40,
+        "reps": 5,
+        "sets": 2
+      },
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Incline Dumbbell Fly",
+        "weight": 45,
+        "reps": 5,
+        "sets": 1
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 60,
+        "reps": 20,
+        "sets": 1
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 45,
+        "reps": 20,
+        "sets": 4
+      }
+    ]
   }
 ]

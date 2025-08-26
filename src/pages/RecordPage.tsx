@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './global.css';
 import './RecordPage.css';
 import { useNavigate, useParams } from 'react-router-dom';
 

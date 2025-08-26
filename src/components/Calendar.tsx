@@ -2,6 +2,11 @@ import './Calendar.css';
 
 type Props = {
   recordedDates: string[];
+  year: number;
+  month: number;
+  onPrevMonth: () => void;
+  onNextMonth: () => void;
+
 };
 
 function generateCalendarDates(year: number, month: number): string[] {
@@ -22,16 +27,22 @@ function generateCalendarDates(year: number, month: number): string[] {
   return dates;
 }
 
-function Calendar({ recordedDates }: Props) {
+function Calendar({ recordedDates, year, month, onPrevMonth, onNextMonth }: Props) {
   const today = new Date().toISOString().slice(0, 10).replace(/-/g, '/');
-  const year = 2025;
-  const month = 7; // August
-
   const dates = generateCalendarDates(year, month);
+
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
 
   return (
     <div className="calendar">
-      <div className="calendar-header">August 2025</div>
+      <div className="calendar-header">
+        <button className="arrow-button" onClick={onPrevMonth}>＜</button>
+        <span>{monthNames[month]} {year}</span>
+        <button className="arrow-button" onClick={onNextMonth}>＞</button>
+      </div>
       <div className="calendar-grid">
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
           <div key={day} className="calendar-day">{day}</div>

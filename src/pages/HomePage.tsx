@@ -1,11 +1,32 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './global.css';
 import './HomePage.css';
 import Calendar from '../components/Calendar';
 
 function HomePage() {
   const navigate = useNavigate();
   const [recordedDates, setRecordedDates] = useState([]);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth()); // 0〜11
+
+  const handlePrevMonth = () => {
+    if (currentMonth === 0) {
+      setCurrentMonth(11);
+      setCurrentYear(currentYear - 1);
+    } else {
+      setCurrentMonth(currentMonth - 1);
+    }
+  };
+
+  const handleNextMonth = () => {
+    if (currentMonth === 11) {
+      setCurrentMonth(0);
+      setCurrentYear(currentYear + 1);
+    } else {
+      setCurrentMonth(currentMonth + 1);
+    }
+  };
 
   useEffect(() => {
     fetch('http://localhost:3001/api/records')
@@ -40,7 +61,13 @@ function HomePage() {
         FitLog
       </h1>
 
-      <Calendar recordedDates={recordedDates} />
+      <Calendar
+        recordedDates={recordedDates}
+        year={currentYear}
+        month={currentMonth}
+        onPrevMonth={handlePrevMonth}
+        onNextMonth={handleNextMonth}
+      />
 
       <button
         onClick={() => navigate('/record')}

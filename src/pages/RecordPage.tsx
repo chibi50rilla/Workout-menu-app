@@ -53,7 +53,7 @@ function RecordPage() {
       'Reverse Pec Deck',
     ],
   };
-  const { muscleGroup } = useParams();
+  const [muscleGroup, setMuscleGroup] = useState('Chest');
   const [exercise, setExercise] = useState('Barbell Bench Press');
   const [weight, setWeight] = useState<string>("");
   const [reps, setReps] = useState<string>("");
@@ -130,7 +130,7 @@ function RecordPage() {
         alert('保存に失敗しました');
       });
 
-    navigate('/history', { state: { history: updatedHistory } });
+    navigate('/history');
   };
 
   const totalWeight = history.reduce(
@@ -142,10 +142,25 @@ function RecordPage() {
     <div className="record-page">
       <h2 className="title">{today}</h2>
 
+      <div className="muscle-group-section">
+        <label className="input-label">Muscle Group</label><br/>
+        <select
+          className="select-box"
+          value={muscleGroup}
+          onChange={(e) => setMuscleGroup(e.target.value)}
+        >
+          <option value="Chest">Chest</option>
+          <option value="Back">Back</option>
+          <option value="Legs">Legs</option>
+          <option value="Arms">Arms</option>
+          <option value="Shoulders">Shoulders</option>
+        </select>
+      </div>
+
       <div className="exercise-section">
         <label className="input-label">Exercise</label><br/>
         <select
-          className="exercise-select"
+          className="select-box"
           value={exercise}
           onChange={(e) => setExercise(e.target.value)}
         >
@@ -260,7 +275,7 @@ function RecordPage() {
           Record
         </button>
 
-        <button className="back-button" onClick={() => navigate('/select')}>
+        <button className="back-button" onClick={() => navigate('/')}>
           Back
         </button>
       </div>

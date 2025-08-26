@@ -1,5 +1,19 @@
 [
   {
+    "date": "2025/08/24",
+    "muscleGroup": "Arms",
+    "records": [
+      {
+        "date": "2025/08/24",
+        "muscleGroup": "Arms",
+        "exercise": "Barbell Curl",
+        "weight": 20,
+        "reps": 10,
+        "sets": 3
+      }
+    ]
+  },
+  {
     "date": "2025/08/25",
     "muscleGroup": "Chest",
     "records": [
@@ -27,6 +41,92 @@
     "records": [
       {
         "date": "2025/08/25",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 75,
+        "reps": 10,
+        "sets": 2
+      },
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 50,
+        "reps": 20,
+        "sets": 1
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Dumbbell Fly",
+        "weight": 42,
+        "reps": 15,
+        "sets": 2
+      },
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Dumbbell Fly",
+        "weight": 30,
+        "reps": 20,
+        "sets": 1
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "Incline Dumbbell Press",
+        "weight": 45,
+        "reps": 20,
+        "sets": 2
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
+        "muscleGroup": "Chest",
+        "exercise": "High-to-Low Cable Fly",
+        "weight": 25,
+        "reps": 10,
+        "sets": 5
+      }
+    ]
+  },
+  {
+    "date": "2025/08/26",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/26",
         "muscleGroup": "Chest",
         "exercise": "Barbell Bench Press",
         "weight": 0,

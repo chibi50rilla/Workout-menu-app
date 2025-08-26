@@ -1,8 +1,20 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
+import Calendar from '../components/Calendar';
 
 function HomePage() {
   const navigate = useNavigate();
+  const [recordedDates, setRecordedDates] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/api/records')
+      .then(res => res.json())
+      .then(data => {
+        const dates = data.map((entry: any) => entry.date);
+        setRecordedDates(dates);
+      });
+  }, []);
 
   return (
     <div 
@@ -27,8 +39,11 @@ function HomePage() {
       >
         FitLog
       </h1>
+
+      <Calendar recordedDates={recordedDates} />
+
       <button
-        onClick={() => navigate('/select')}
+        onClick={() => navigate('/record')}
         className="button"
       >
         Log start

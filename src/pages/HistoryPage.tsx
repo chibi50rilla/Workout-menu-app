@@ -1,4 +1,5 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './HistoryPage.css';
 
 type RecordEntry = {
@@ -12,15 +13,32 @@ type RecordEntry = {
 
 function HistoryPage() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const history = (location.state?.history as RecordEntry[]) || [];
+  const [history, setHistory] = useState<RecordEntry[]>([]);
 
   const today = new Date().toISOString().slice(0, 10).replace(/-/g, '/');
   const todayHistory = history.filter((entry) => entry.date === today);
+
   const totalWeightToday = todayHistory.reduce(
     (sum, entry) => sum + entry.weight * entry.reps * entry.sets,
     0
   );
+  
+  useEffect(() => {
+    fetch('http://localhost:3001/api/records')
+      .then(res => res.json())
+      .then(data => {
+        const flattened = data.flatMap((entry: any) =>
+          entry.records.map((r: any) => ({
+            date: entry.date,
+            muscleGroup: entry.muscleGroup,
+            ...r,
+          }))
+        );
+        setHistory(flattened);
+      })
+      .catch(err => console.error('取得エラー:', err));
+  }, []);
+
 
   return (
     <div className="history-page">
@@ -63,7 +81,7 @@ function HistoryPage() {
         </>
       )}
 
-      <button className="back-button" onClick={() => navigate(-1)}>
+      <button className="back-button" onClick={() => navigate('/record')}>
         Back
       </button>
     </div>

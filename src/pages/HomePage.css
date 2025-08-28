@@ -1,6 +1,5 @@
 .button {
   width: 320px;
-  margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
   background-color: #b5ff00;
@@ -12,6 +11,23 @@
 
 .button:hover {
   background-color: #d4ff4f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.analysis-button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-top: 20px;
+  background-color: #3b4a6b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.analysis-button:hover {
+  background-color: #4c5c7d;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }

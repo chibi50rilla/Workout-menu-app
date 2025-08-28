@@ -75,6 +75,14 @@ function HomePage() {
       >
         Log start
       </button>
+
+      <button
+        onClick={() => navigate('/analysis')}
+        className="analysis-button"
+      >
+        Analysis
+      </button>
+
     </div>
   );
 }

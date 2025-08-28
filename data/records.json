@@ -296,5 +296,19 @@
         "sets": 0
       }
     ]
+  },
+  {
+    "date": "2025/08/28",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/28",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
   }
 ]

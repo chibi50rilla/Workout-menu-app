@@ -21,6 +21,11 @@ type SetEntry = {
 function RecordPage() {
   const navigate = useNavigate();
 
+  const calculate1RM = (weight: number, reps: number): number => {
+    if (weight <= 0 || reps <= 0) return 0;
+    return Math.round(weight * (1 + reps / 30));
+  };
+
   const exerciseOptions: { [key: string]: string[] } = {
     Chest: [
       'Barbell Bench Press', 'Incline Barbell Bench Press', 'Dumbbell Bench Press',
@@ -199,6 +204,25 @@ function RecordPage() {
             onChange={(e) => setSets(e.target.value)}
           />
         </div>
+        <div className="input-item">
+          <label className="input-label">1RM</label>
+          {weight && reps && (
+            <span
+              style={{
+                fontSize: '15px',
+                color: '#ccc',
+                position: 'relative',
+                whiteSpace: 'nowrap',
+                textAlign: 'left',
+                display: 'block',
+                marginLeft: 5,
+                marginTop: '10px',
+              }}
+            >
+              {calculate1RM(Number(weight), Number(reps))} kg
+            </span>
+          )}
+        </div>
       </div>
 
       {setEntries.map((entry, index) => (
@@ -246,6 +270,25 @@ function RecordPage() {
                 e.target.addEventListener('wheel', (event) => event.preventDefault(), { passive: false });
               }}
             />
+
+            {entry.weight && entry.reps && (
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'flex-start',
+                  alignItems: 'flex-start',
+                  marginLeft: 7,
+                  fontSize: '15px',
+                  marginTop: '10px',
+                  color:  '#ccc'
+                }}
+              >
+                <span>
+                  {calculate1RM(Number(entry.weight), Number(entry.reps))} kg
+                </span>
+              </div>
+            )}
           </div>
         </div>
       ))}

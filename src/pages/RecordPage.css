@@ -1,3 +1,4 @@
+/* === ページ全体のレイアウト === */
 .record-page {
   background-color: #1a2a3a;
   color: #b5ff00;
@@ -13,13 +14,11 @@
   font-weight: normal;
 }
 
-.muscle-group-section {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
+/* === セレクトボックス（筋群・種目） === */
+.muscle-group-section,
 .exercise-section {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .exercise-section label {
@@ -38,6 +37,7 @@
   max-width: 300px;
 }
 
+/* === 入力欄（Weight / Reps / Sets / 1RM） === */
 .input-group {
   display: flex;
   justify-content: center;
@@ -70,11 +70,36 @@
   margin-left: 5px;
 }
 
+.rm-display {
+  font-size: 15px;
+  color: #ccc;
+  margin-left: 5px;
+  margin-top: 10px;
+  white-space: nowrap;
+  text-align: left;
+  display: block;
+  min-width: 60px;
+}
+
+/* === セット追加ボタン === */
+.add-set-button {
+  margin-top: 30px;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #2e3a59;
+  color: #c7f464;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* === 合計表示（Total Load） === */
 .exercise-total {
   margin-top: 20px;
   font-size: 18px;
 }
 
+/* === 記録・戻るボタン === */
 .button-group {
   display: flex;
   flex-direction: column;
@@ -117,6 +142,7 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* === 履歴表示（HistoryPage用） === */
 .date-label {
   font-size: 18px;
   margin-bottom: 10px;
@@ -129,6 +155,7 @@
   color: #ffffff;
 }
 
+/* === 数値入力のスピンボタンを非表示（Chrome対応） === */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

@@ -82,8 +82,16 @@ function HistoryPage() {
         </>
       )}
 
+      {/* 戻るボタン */}
       <button className="back-button" onClick={() => navigate('/record')}>
         Back
+      </button>
+
+      <button
+        onClick={() => navigate('/analysis')}
+        className="analysis-button"
+      >
+        Analysis
       </button>
     </div>
   );

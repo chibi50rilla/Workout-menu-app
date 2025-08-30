@@ -310,5 +310,61 @@
         "sets": 0
       }
     ]
+  },
+  {
+    "date": "2025/08/30",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/30",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
+  },
+  {
+    "date": "2025/08/30",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/30",
+        "muscleGroup": "Chest",
+        "exercise": "Chin-Up",
+        "weight": 80,
+        "reps": 5,
+        "sets": 0
+      }
+    ]
+  },
+  {
+    "date": "2025/08/30",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/30",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
+  },
+  {
+    "date": "2025/08/30",
+    "muscleGroup": "Chest",
+    "records": [
+      {
+        "date": "2025/08/30",
+        "muscleGroup": "Chest",
+        "exercise": "Barbell Bench Press",
+        "weight": 0,
+        "reps": 0,
+        "sets": 0
+      }
+    ]
   }
 ]
